@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     public int minCost(int n,int[] cuts) {
         int m=cuts.length;
