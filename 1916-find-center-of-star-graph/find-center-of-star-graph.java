@@ -1,15 +1,15 @@
 class Solution {
     public int findCenter(int[][] edges) {
         int n=edges.length+1;
-        int[] indegree=new int[n+1];
-        for(int i=0;i<edges.length;i++){
-            indegree[edges[i][0]]++;
-            indegree[edges[i][1]]++;
+        int[]degree=new int[n+1];
+        for(int i=0;i<n-1;i++){
+            degree[edges[i][0]]++;
+            degree[edges[i][1]]++;
         }
-        for(int i=1;i<indegree.length;i++){
-            if(indegree[i]==edges.length){
-                return i;
-            }
+        for(int i=1;i<=n;i++){
+           if(degree[i]==n-1){
+            return i;
+           }
         }
         return -1;
     }
