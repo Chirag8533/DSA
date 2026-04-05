@@ -10,7 +10,7 @@ class Solution {
             adj.get(u).add(v);
             adj.get(v).add(u);
         }
-    boolean[] visited=new boolean[n+1];
+    boolean[] visited=new boolean[n];
     Queue<Integer>q=new LinkedList<>();
     visited[source]=true;
     q.add(source);
