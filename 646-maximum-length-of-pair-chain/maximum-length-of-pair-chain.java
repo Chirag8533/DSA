@@ -8,8 +8,6 @@ class Solution {
             }
         }
         return solve(0,-1,pairs,dp);
-        
-
     }
     public static int solve(int i,int prev,int[][] pairs,int[][] dp){
         if(i==pairs.length){
