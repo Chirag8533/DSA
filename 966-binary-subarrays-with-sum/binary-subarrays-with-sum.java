@@ -1,19 +1,23 @@
 class Solution {
     public int numSubarraysWithSum(int[] nums, int goal) {
+        return atmost(nums,goal)-atmost(nums,goal-1);
+    }
+    public static int atmost(int[] nums,int goal){
+        if(goal<0){
+            return 0;
+        }
         int n=nums.length;
-        int maxLen=Integer.MAX_VALUE;
         int count=0;
-        for(int i=0;i<n;i++){
-            int sum=0;
-            for(int j=i;j<n;j++){
-                sum+=nums[j];
-                if(sum==goal){
-                    maxLen=Math.max(maxLen,j-i+1);
-                    count++;
-                }
+        int left=0;
+        int sum=0;
+        for(int right=0;right<n;right++){
+            sum=sum+nums[right];
+            while(sum>goal){
+                sum=sum-nums[left];
+                left++;
             }
+            count=count+(right-left+1);
         }
         return count;
-        
     }
 }
