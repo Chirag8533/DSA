@@ -8,17 +8,18 @@ class Solution {
             }
         }
         return solve(0,-1,nums,dp);
+        
     }
     public static int solve(int i,int prev,int[] nums,int[][] dp){
-        if(i>=nums.length){
+        if(i==nums.length){
             return 0;
         }
         if(dp[i][prev+1]!=-1){
             return dp[i][prev+1];
         }
         int take=0;
-        if(prev==-1 ||nums[prev]<nums[i]){
-          take=1+solve(i+1,i,nums,dp);
+        if(prev==-1 || nums[prev]<nums[i]){
+            take=1+solve(i+1,i,nums,dp);
         }
         int nottake=solve(i+1,prev,nums,dp);
         return dp[i][prev+1]=Math.max(take,nottake);
