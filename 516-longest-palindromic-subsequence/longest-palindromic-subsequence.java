@@ -8,7 +8,6 @@ class Solution {
             }
         }
         return solve(0,n-1,s,dp);
-
     }
     public static int solve(int i,int j,String s,int[][] dp){
         if(i==j){
@@ -25,8 +24,6 @@ class Solution {
             take=2+solve(i+1,j-1,s,dp);
         }
         int nottake=Math.max(solve(i+1,j,s,dp),solve(i,j-1,s,dp));
-        dp[i][j]= Math.max(take,nottake);
-        return dp[i][j];
-
+        return dp[i][j]=Math.max(take,nottake);
     }
 }
