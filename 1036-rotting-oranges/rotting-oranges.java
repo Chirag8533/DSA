@@ -10,9 +10,9 @@ class Solution {
         }
     }
     public int orangesRotting(int[][] grid) {
-        Queue<Triplet>q=new LinkedList<>();
         int n=grid.length;
         int m=grid[0].length;
+        Queue<Triplet>q=new LinkedList<>();
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 if(grid[i][j]==2){
@@ -26,12 +26,12 @@ class Solution {
             int r=node.row;
             int c=node.col;
             int time=node.time;
-            maxTime=Math.max(time,maxTime);
+            maxTime=Math.max(maxTime,time);
             if(r-1>=0 && grid[r-1][c]==1){
                 grid[r-1][c]=2;
                 q.add(new Triplet(r-1,c,time+1));
             }
-            if(r+1<n && grid[r+1][c]==1){
+            if(r+1<grid.length && grid[r+1][c]==1){
                 grid[r+1][c]=2;
                 q.add(new Triplet(r+1,c,time+1));
             }
@@ -39,17 +39,16 @@ class Solution {
                 grid[r][c-1]=2;
                 q.add(new Triplet(r,c-1,time+1));
             }
-            if(c+1<m && grid[r][c+1]==1){
+            if(c+1<grid[0].length && grid[r][c+1]==1){
                 grid[r][c+1]=2;
                 q.add(new Triplet(r,c+1,time+1));
             }
-            
 
         }
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 if(grid[i][j]==1){
-                return -1;
+                    return -1;
                 }
             }
         }
