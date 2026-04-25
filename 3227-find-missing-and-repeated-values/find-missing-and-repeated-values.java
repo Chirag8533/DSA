@@ -2,13 +2,13 @@ class Solution {
     public int[] findMissingAndRepeatedValues(int[][] grid) {
         int n=grid.length;
         int repeat=0;
-        HashMap<Integer,Integer>map=new HashMap<>();
+        HashSet<Integer>set=new HashSet<>();
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
-                if(map.containsKey(grid[i][j])){
+                if(set.contains(grid[i][j])){
                     repeat=grid[i][j];
                 }else{
-                    map.put(grid[i][j],1);
+                    set.add(grid[i][j]);
                 }
             }
         }
