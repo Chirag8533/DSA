@@ -1,27 +1,35 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
         int n=nums.length;
-        ArrayList<Integer>adj=new ArrayList<>();
-        for(int i=0;i<n;i++){
-            if(nums[i]==target){
-                adj.add(i);
-                break;
+        int low=0;
+        int high=n-1;
+        int ans=-1;
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            if(nums[mid]==target){
+                ans=mid;
+                high=mid-1;
+            }else if(nums[mid]<target){
+                low=mid+1;
+            }else{
+                high=mid-1;
             }
+            
         }
-        for(int i=n-1;i>=0;i--){
-            if(nums[i]==target){
-                adj.add(i);
-                break;
+        int anslast=-1;
+        int start=0;
+        int end=n-1;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+                if(nums[mid]==target){
+                    anslast=mid;
+                    start=mid+1;
+                }else if(nums[mid]<target){
+                    start=mid+1;
+                }else{
+                    end=mid-1;
+                }
             }
-        }
-        if(adj.size()==0){
-            adj.add(-1);
-            adj.add(-1);
-        }
-        int[] arr=new int[adj.size()];
-        for(int i=0;i<adj.size();i++){
-           arr[i]=adj.get(i);
-        }
-        return arr;
+        return new int[]{ans,anslast};
     }
 }
