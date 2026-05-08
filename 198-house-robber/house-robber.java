@@ -12,9 +12,9 @@ class Solution {
         if(dp[i]!=-1){
             return dp[i];
         }
-
-        int rob=nums[i]+solve(i+2,nums,dp);
-        int notrob=solve(i+1,nums,dp);
-        return dp[i]=Math.max(rob,notrob);
+        int take=nums[i]+solve(i+2,nums,dp);
+        int nottake=solve(i+1,nums,dp);
+        return dp[i]=Math.max(take,nottake);
     }
+    
 }
