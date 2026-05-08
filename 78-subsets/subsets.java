@@ -1,5 +1,6 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
+        Arrays.sort(nums);
         List<List<Integer>>adj=new ArrayList<>();
         ArrayList<Integer> current=new ArrayList<>();
         solve(0,nums,current,adj);
