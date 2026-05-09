@@ -1,23 +1,20 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        // HashSet<Integer> set=new HashSet<>();
-        // for(int i=0;i<nums.length;i++){
-        //     if(!set.contains(nums[i])){
-        //     set.add(nums[i]);
-        //     }else{
-        //         set.remove(nums[i]);
-        //     }
-        // }
-        // for(int ele:set){
-        //     return ele;
-        // }
-        // return 0;
-        //USINT BIT MANUIPULATION no extra sapce;
-        int curr=nums[0];
-        for(int i=1;i<nums.length;i++){
-            curr=curr^nums[i];
+        HashMap<Integer,Integer>map=new HashMap<>();
+        int n=nums.length;
+        for(int i=0;i<n;i++){
+            if(map.containsKey(nums[i])){
+                map.put(nums[i],map.get(nums[i])+1);
+            }else{
+                map.put(nums[i],1);
+            }
         }
-        return curr;
+        for(int key:map.keySet()){
+            if(map.get(key)<2){
+                return key;
+            }
+        }
+        return -1;
 
 
 
