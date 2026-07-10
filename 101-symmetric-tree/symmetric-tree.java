@@ -18,7 +18,6 @@ class Solution {
           if(root==null){
             return true;
         }
-
         return isMirror(root.left,root.right);
     }
     public boolean isMirror(TreeNode left, TreeNode right){
