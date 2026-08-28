@@ -5,12 +5,12 @@ class Solution {
         if(x<0){
             return false;
         }
-        while(x!=0){
-            int lastDigit=x%10;
-            rev=rev*10+lastDigit;
-            x=x/10;
+        while(y!=0){
+            int lastdigit=y%10;
+            rev=rev*10+lastdigit;
+            y=y/10;
         }
-        if(rev==y){
+        if(x==rev){
             return true;
         }
         return false;
